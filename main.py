@@ -4,6 +4,7 @@ from flask import request,jsonify
 from flask import Flask
 import numpy as np
 import pandas as pd
+import os
 
 
 with open('decision_tree_model.pkl', 'rb') as model_file:
@@ -15,7 +16,7 @@ with open('decision_tree_model.pkl', 'rb') as model_file:
 app = Flask(__name__)
 
 # this is the entry point
-application = app
+#application = app
 
 @app.route("/")
 def hello():
@@ -52,8 +53,11 @@ def predict():
     )
     return response
 
+#if __name__ == '__main__':
+#    app.run()
+    
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
 
 
 #pip install numpy
