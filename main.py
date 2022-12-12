@@ -5,6 +5,7 @@ from flask import Flask
 import numpy as np
 import pandas as pd
 import os
+from flask_cors import CORS
 
 
 with open('decision_tree_model.pkl', 'rb') as model_file:
@@ -15,6 +16,7 @@ with open('decision_tree_model.pkl', 'rb') as model_file:
 
 app = Flask(__name__)
 
+CORS(app)
 # this is the entry point
 #application = app
 
