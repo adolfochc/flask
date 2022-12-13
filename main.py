@@ -32,11 +32,17 @@ def hello():
 def predictv2():
     # Obtenemos los datos de entrada de la solicitud HTTP
     input_data = request.json
+    #
+    # Crear un diccionario con los datos
+    datos = {'Mantenimiento': [164], 'TipoVehiculo': [26],'Equipo':[45],'Flota':[8],'CodigoMat':[2709],'Material':[6675],'KmOT':[841409],'(CORRECTIVO,)':0,
+         '(PREVENTIVO,)':1,'(PROACTIVO,)':0,'(SINIESTROS,)':0,'(TRABAJOS MAYORES - MEJORAS,)':0,'(TRABAJOS MENORES - IMAGEN,)':0}
+    # Crear la tabla a partir del diccionario
+    tabla = pd.DataFrame(datos)
     # Convertimos el diccionario a una matriz NumPy
-    input_array = np.array(list(input_data.values()))
+    #input_array = np.array(list(input_data.values()))
     # Aquí deberías procesar los datos de entrada y usar el modelo
     # para hacer una predicción
-    prediction = model_lineal.predict(input_array)
+    prediction = model_lineal.predict(tabla)
 
     # Finalmente, devolvemos la predicción en formato JSON
     #return jsonify(prediction)
