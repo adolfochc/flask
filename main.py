@@ -59,9 +59,10 @@ def predictv2():
     print(value)
     #print(np.datetime64(int(value),'s'))
     print(datetime_series[0])
+    fecha_convertida = datetime_series[0].strftime("%Y-%m-%d")
     response = jsonify(
         {
-            'data': datetime_series[0]
+            'data': fecha_convertida
         }
     )
     return response
