@@ -10,6 +10,9 @@ from flask_cors import CORS
 
 with open('decision_tree_model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
+    
+with open("linear_regression_model.pkl", "rb") as f:
+  model_lineal = pickle.load(f)
 
 # Luego, creamos la función que se encargará de hacer predicciones
 # con el modelo y exponerla como una API
@@ -23,6 +26,38 @@ CORS(app)
 @app.route("/")
 def hello():
     return "Hello World!"
+
+
+@app.route('/predictv2', methods=['POST'])
+def predictv2():
+    # Obtenemos los datos de entrada de la solicitud HTTP
+    input_data = request.json
+    # Convertimos el diccionario a una matriz NumPy
+    input_array = np.array(list(input_data.values()))
+    # Aquí deberías procesar los datos de entrada y usar el modelo
+    # para hacer una predicción
+    prediction = model_lineal.predict(input_array)
+
+    # Finalmente, devolvemos la predicción en formato JSON
+    #return jsonify(prediction)
+    #value = np.datetime64(prediction,'s')
+    #value  = prediction.astype(np.datetime64)
+    value = prediction[0].astype(np.int64)
+    int64_series = pd.Series([value])
+    datetime_series = pd.to_datetime(int64_series)
+    # convert the Series to a JSON string
+    json_string = datetime_series.to_json()
+    # print the JSON string
+    print(json_string)
+    print(value)
+    #print(np.datetime64(int(value),'s'))
+    print(datetime_series[0])
+    response = jsonify(
+        {
+            'data': datetime_series[0]
+        }
+    )
+    return response
 
 @app.route('/predict', methods=['POST'])
 def predict():
