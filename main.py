@@ -50,7 +50,7 @@ def predictv2():
     #value  = prediction.astype(np.datetime64)
     value = prediction[0].astype(np.int64)
     int64_series = pd.Series([value])
-    datetime_series = pd.to_datetime(int64_series,format='%d/%m/%Y')
+    datetime_series = pd.to_datetime(int64_series)
     
     # convert the Series to a JSON string
     json_string = datetime_series.to_json()
