@@ -32,7 +32,7 @@ def hello():
 def predictv2():
     # Obtenemos los datos de entrada de la solicitud HTTP
     input_data = request.json
-    #
+    print("REQUEST => ",input_data)
     # Crear un diccionario con los datos
     datos = {'Mantenimiento': [164], 'TipoVehiculo': [26],'Equipo':[45],'Flota':[8],'CodigoMat':[2709],'Material':[6675],'KmOT':[841409],'(CORRECTIVO,)':0,
          '(PREVENTIVO,)':1,'(PROACTIVO,)':0,'(SINIESTROS,)':0,'(TRABAJOS MAYORES - MEJORAS,)':0,'(TRABAJOS MENORES - IMAGEN,)':0}
