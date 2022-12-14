@@ -75,8 +75,9 @@ def predictv2():
     input_data = request.json
     print("REQUEST => ",input_data)
     # Crear un diccionario con los datos
-    datos = {'Mantenimiento': [160], 'TipoVehiculo': [24],'Equipo':[5],'Flota':[8],'CodigoMat':[2709],'Material':[6675],'KmOT':[841409],'(CORRECTIVO,)':0,
-         '(PREVENTIVO,)':1,'(PROACTIVO,)':0,'(SINIESTROS,)':0,'(TRABAJOS MAYORES - MEJORAS,)':0,'(TRABAJOS MENORES - IMAGEN,)':0}
+    #datos = {'Mantenimiento': [160], 'TipoVehiculo': [24],'Equipo':[5],'Flota':[8],'CodigoMat':[2709],'Material':[6675],'KmOT':[841409],'(CORRECTIVO,)':0,
+     #    '(PREVENTIVO,)':1,'(PROACTIVO,)':0,'(SINIESTROS,)':0,'(TRABAJOS MAYORES - MEJORAS,)':0,'(TRABAJOS MENORES - IMAGEN,)':0}
+    datos = {'Fecha Prog.': [160],'KmOT':[841409]}
     # Crear la tabla a partir del diccionario
     tabla = pd.DataFrame(datos)
     # Convertimos el diccionario a una matriz NumPy
