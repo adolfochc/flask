@@ -33,8 +33,8 @@ def hello():
 @app.route('/predictv3', methods=['POST'])
 def predictv3():
     # Obtenemos los datos de entrada de la solicitud HTTP
-    #input_data = request.json
-    #print("REQUEST => ",input_data)
+    input_data = request.json
+    print("REQUEST => ",input_data)
     # Crear un diccionario con los datos
     datos = {'Fecha Prog.': [160],'KmOT':[841409]}
     # Crear la tabla a partir del diccionario
