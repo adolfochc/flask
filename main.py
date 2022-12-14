@@ -11,8 +11,8 @@ from flask_cors import CORS
 with open('decision_tree_model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
     
-#with open("linear_regression_model.pkl", "rb") as f:
-  #model_lineal = pickle.load(f)
+with open("linear_regression_model.pkl", "rb") as f:
+  model_lineal = pickle.load(f)
 
 with open("linear_regression.pkl", "rb") as fv:
   model_regression = pickle.load(fv)
