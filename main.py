@@ -14,8 +14,8 @@ with open('decision_tree_model.pkl', 'rb') as model_file:
 with open("linear_regression_model.pkl", "rb") as f:
   model_lineal = pickle.load(f)
 
-with open("linear_regression_model_v2.pkl", "rb") as f:
-  model_lineal_v2 = pickle.load(f)
+with open("linear_regression_model_v2.pkl", "rb") as fv:
+  model_lineal_v2 = pickle.load(fv)
 
 # Luego, creamos la función que se encargará de hacer predicciones
 # con el modelo y exponerla como una API
@@ -33,8 +33,8 @@ def hello():
 @app.route('/predictv3', methods=['POST'])
 def predictv3():
     # Obtenemos los datos de entrada de la solicitud HTTP
-    input_data = request.json
-    print("REQUEST => ",input_data)
+    #input_data = request.json
+    #print("REQUEST => ",input_data)
     # Crear un diccionario con los datos
     datos = {'Fecha Prog.': [160],'KmOT':[841409]}
     # Crear la tabla a partir del diccionario
