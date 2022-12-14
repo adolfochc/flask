@@ -36,10 +36,10 @@ def predictv3():
     input_data = request.json
     print("REQUEST => ",input_data)
     # Crear un diccionario con los datos
-    datos = {'Fecha Prog.': [input_data['fecha']],'KmOT':[input_data['kmot']]}
+    datos = {'KmOT':[input_data['kmot']],'Fecha Prog.': [input_data['fecha']]}
     # Crear la tabla a partir del diccionario
     #tabla = pd.DataFrame(datos)
-    tabla = pd.DataFrame(datos, columns=['Fecha Prog.', 'KmOT'])
+    tabla = pd.DataFrame(datos, columns=['KmOT','Fecha Prog.'])
     # Convertimos el diccionario a una matriz NumPy
     #input_array = np.array(list(input_data.values()))
     # Aquí deberías procesar los datos de entrada y usar el modelo
