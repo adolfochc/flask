@@ -59,7 +59,7 @@ def predictv3():
     #print(datetime_series[0])
     
     print(tabla)
-    #predictions = model_regression.predict(tabla)
+    predictions = model_regression.predict(tabla)
 
     #int64_series = pd.Series([predictions[0]])
     #datetime_series = pd.to_datetime(int64_series)
