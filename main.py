@@ -14,7 +14,7 @@ with open('decision_tree_model.pkl', 'rb') as model_file:
 with open("linear_regression_model.pkl", "rb") as f:
   model_lineal = pickle.load(f)
 
-with open("linear_regression_model_v2.pkl", "rb") as fv:
+with open("linear_regression.pkl", "rb") as fv:
   model_regression = pickle.load(fv)
 
 # Luego, creamos la función que se encargará de hacer predicciones
