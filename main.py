@@ -36,7 +36,7 @@ def predictv3():
     input_data = request.json
     print("REQUEST => ",input_data)
     # Crear un diccionario con los datos
-    datos = {'Fecha Prog.': [160],'KmOT':[841409]}
+    datos = {'Fecha Prog.': [input_data['fecha']],'KmOT':[input_data['kmot']]}
     # Crear la tabla a partir del diccionario
     tabla = pd.DataFrame(datos)
     # Convertimos el diccionario a una matriz NumPy
