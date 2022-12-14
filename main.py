@@ -83,7 +83,7 @@ def predictv2():
     #input_array = np.array(list(input_data.values()))
     # Aquí deberías procesar los datos de entrada y usar el modelo
     # para hacer una predicción
-    prediction = model_lineal.predict(tabla)
+    prediction = model_lineal_v2.predict(tabla)
 
     # Finalmente, devolvemos la predicción en formato JSON
     #return jsonify(prediction)
