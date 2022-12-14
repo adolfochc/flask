@@ -57,15 +57,15 @@ def predictv3():
     #print(value)
     #print(np.datetime64(int(value),'s'))
     #print(datetime_series[0])
-    predictions = model_regression.predict(tabla)
+    
+    print(tabla)
+    #predictions = model_regression.predict(tabla)
 
-    int64_series = pd.Series([predictions[0]])
-    datetime_series = pd.to_datetime(int64_series)
-
-    #int64_series_test = pd.Series([y_test.iloc[value_x]])
-    #datetime_series_test = pd.to_datetime(int64_series_test)
-    print("Predicted:", datetime_series[0])
-    fecha_convertida = datetime_series[0].strftime("%Y-%m-%d")
+    #int64_series = pd.Series([predictions[0]])
+    #datetime_series = pd.to_datetime(int64_series)
+    #print("Predicted:", datetime_series[0])
+    #fecha_convertida = datetime_series[0].strftime("%Y-%m-%d")
+    fecha_convertida = "error"
     response = jsonify(
         {
             'data': fecha_convertida
