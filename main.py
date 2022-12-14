@@ -65,7 +65,7 @@ def predictv3():
     int64_series = pd.Series([predictions[0]])
     datetime_series = pd.to_datetime(int64_series)
     print("Predicted:", datetime_series[0])
-    fecha_convertida = datetime_series[0].strftime("%Y-%m-%d")
+    fecha_convertida = datetime_series[0].strftime("%Y-%m-%d %H:%i:%s")
     #fecha_convertida = "error"
     response = jsonify(
         {
