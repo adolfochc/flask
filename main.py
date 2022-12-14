@@ -15,7 +15,7 @@ with open("linear_regression_model.pkl", "rb") as f:
   model_lineal = pickle.load(f)
 
 with open("linear_regression_model_v2.pkl", "rb") as fv:
-  model_lineal_v2 = pickle.load(fv)
+  model_regression = pickle.load(fv)
 
 # Luego, creamos la función que se encargará de hacer predicciones
 # con el modelo y exponerla como una API
@@ -43,23 +43,28 @@ def predictv3():
     #input_array = np.array(list(input_data.values()))
     # Aquí deberías procesar los datos de entrada y usar el modelo
     # para hacer una predicción
-    prediction = model_lineal_v2.predict(tabla)
+    #prediction = model_lineal_v2.predict(tabla)
 
     # Finalmente, devolvemos la predicción en formato JSON
-    #return jsonify(prediction)
-    #value = np.datetime64(prediction,'s')
-    #value  = prediction.astype(np.datetime64)
-    value = prediction[0].astype(np.int64)
-    int64_series = pd.Series([value])
-    datetime_series = pd.to_datetime(int64_series)
+    #value = prediction[0].astype(np.int64)
+    #int64_series = pd.Series([value])
+    #datetime_series = pd.to_datetime(int64_series)
     
     # convert the Series to a JSON string
-    json_string = datetime_series.to_json()
+    #json_string = datetime_series.to_json()
     # print the JSON string
-    print(json_string)
-    print(value)
+    #print(json_string)
+    #print(value)
     #print(np.datetime64(int(value),'s'))
-    print(datetime_series[0])
+    #print(datetime_series[0])
+    predictions = model_regression.predict(tabla)
+
+    int64_series = pd.Series([predictions[0]])
+    datetime_series = pd.to_datetime(int64_series)
+
+    #int64_series_test = pd.Series([y_test.iloc[value_x]])
+    #datetime_series_test = pd.to_datetime(int64_series_test)
+    print("Predicted:", datetime_series[0])
     fecha_convertida = datetime_series[0].strftime("%Y-%m-%d")
     response = jsonify(
         {
