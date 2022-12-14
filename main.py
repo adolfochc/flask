@@ -40,6 +40,7 @@ def predictv3():
     # Crear la tabla a partir del diccionario
     #tabla = pd.DataFrame(datos)
     tabla = pd.DataFrame(datos, columns=['KmOT','Fecha Prog.'])
+    tabla['Fecha Prog.'] = tabla['Fecha Prog.'].astype(np.int64)
     # Convertimos el diccionario a una matriz NumPy
     #input_array = np.array(list(input_data.values()))
     # Aquí deberías procesar los datos de entrada y usar el modelo
