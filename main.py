@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import os
 from flask_cors import CORS
+import random
 
 
 with open('decision_tree_model.pkl', 'rb') as model_file:
@@ -61,13 +62,21 @@ def predictv3():
     #print(np.datetime64(int(value),'s'))
     #print(datetime_series[0])
     
+    # Generar un número aleatorio de días entre 1 y 30 (inclusive)
+    random_days = random.randint(30, 90)
+    
     print(tabla)
     predictions = model_regression.predict(tabla)
 
     int64_series = pd.Series([predictions[0]])
     datetime_series = pd.to_datetime(int64_series)
     print("Predicted:", datetime_series[0])
-    fecha_convertida = datetime_series[0].strftime("%Y-%m-%d %H:%M:%S")
+    #fecha_convertida = datetime_series[0].strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Sumar el número aleatorio de días al objeto datetime
+    datetime_object_future = datetime_series[0] + datetime_series[0].timedelta(days=random_days)
+
+    fecha_convertida = datetime_object_future.strftime("%Y-%m-%d %H:%M:%S")
     #fecha_convertida = "error"
     response = jsonify(
         {
