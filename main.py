@@ -72,9 +72,9 @@ def predictv3():
     datetime_series = pd.to_datetime(int64_series)
     print("Predicted:", datetime_series[0])
     #fecha_convertida = datetime_series[0].strftime("%Y-%m-%d %H:%M:%S")
-    
+    fecha_p = datetime_series[0].to_pydatetime()
     # Sumar el número aleatorio de días al objeto datetime
-    datetime_object_future = datetime_series[0] + datetime_series[0].timedelta(days=random_days)
+    datetime_object_future = fecha_p + fecha_p.timedelta(days=random_days)
 
     fecha_convertida = datetime_object_future.strftime("%Y-%m-%d %H:%M:%S")
     #fecha_convertida = "error"
