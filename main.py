@@ -7,6 +7,7 @@ import pandas as pd
 import os
 from flask_cors import CORS
 import random
+import datetime
 
 
 with open('decision_tree_model.pkl', 'rb') as model_file:
@@ -56,7 +57,7 @@ def predictv3():
     #fecha_convertida = datetime_series[0].strftime("%Y-%m-%d %H:%M:%S")
     fecha_p = datetime_series[0]
     # Sumar el número aleatorio de días al objeto datetime
-    datetime_object_future = fecha_p + fecha_p.timedelta(days=random_days)
+    datetime_object_future = fecha_p +  datetime.timedelta(days=random_days)
 
     fecha_convertida = datetime_object_future.strftime("%Y-%m-%d %H:%M:%S")
     #fecha_convertida = "error"
