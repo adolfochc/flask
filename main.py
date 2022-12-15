@@ -43,24 +43,6 @@ def predictv3():
     tabla = pd.DataFrame(datos, columns=['KmOT','Fecha Prog.'])
     tabla['Fecha Prog.'] = tabla['Fecha Prog.'].astype(np.datetime64)
     tabla['Fecha Prog.'] = tabla['Fecha Prog.'].astype(np.int64)
-    # Convertimos el diccionario a una matriz NumPy
-    #input_array = np.array(list(input_data.values()))
-    # Aquí deberías procesar los datos de entrada y usar el modelo
-    # para hacer una predicción
-    #prediction = model_lineal_v2.predict(tabla)
-
-    # Finalmente, devolvemos la predicción en formato JSON
-    #value = prediction[0].astype(np.int64)
-    #int64_series = pd.Series([value])
-    #datetime_series = pd.to_datetime(int64_series)
-    
-    # convert the Series to a JSON string
-    #json_string = datetime_series.to_json()
-    # print the JSON string
-    #print(json_string)
-    #print(value)
-    #print(np.datetime64(int(value),'s'))
-    #print(datetime_series[0])
     
     # Generar un número aleatorio de días entre 1 y 30 (inclusive)
     random_days = random.randint(30, 90)
@@ -72,7 +54,7 @@ def predictv3():
     datetime_series = pd.to_datetime(int64_series)
     print("Predicted:", datetime_series[0])
     #fecha_convertida = datetime_series[0].strftime("%Y-%m-%d %H:%M:%S")
-    fecha_p = datetime_series[0].to_pydatetime()
+    fecha_p = datetime_series[0]
     # Sumar el número aleatorio de días al objeto datetime
     datetime_object_future = fecha_p + fecha_p.timedelta(days=random_days)
 
